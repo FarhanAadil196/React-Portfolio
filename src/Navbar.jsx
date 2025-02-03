@@ -9,6 +9,7 @@ const Wrapper = styled.div`
     align-items: center;
     padding: 1rem;
     position: relative;
+    border-radius:40px;
   }
 
   .navbar-menu {
@@ -38,9 +39,10 @@ const Wrapper = styled.div`
     width: 50px;
     padding: 5px;
     overflow: hidden;
-  }
-
-  button:hover img {
+    }
+    
+    button:hover img {
+      transition:transform .6s ease-in-out;
     transform: scale(1.4);
   }
 
@@ -103,11 +105,11 @@ function Navbar() {
           </div>
 
           <ul className={`navbar-menu ${menuOpen ? "open" : ""}`}>
-            <li className="navbar-item">
               <a href="#home" className="navbar-link">
+            <li className="navbar-item">
                 Home
-              </a>
             </li>
+              </a>
             <li className="navbar-item">
               <a href="#about" className="navbar-link">
                 About
