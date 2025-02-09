@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -63,15 +64,14 @@ const Wrapper = styled.div`
     background-color: black;
     height: 2px;
     width: 25px;
-    transition: all 0.3s ease;
-  }
-  @media (max-width: 768px) {
-    .hamburger-lines {
-      display: flex;
     }
-
-    .navbar-menu {
-      display: none;
+    @media (max-width: 768px) {
+      .hamburger-lines {
+        display: flex;
+        }
+        
+        .navbar-menu {
+          display: none;
       flex-direction: column;
       position: absolute;
       top: 60px;
@@ -80,9 +80,12 @@ const Wrapper = styled.div`
       background-color: #ccc;
       padding: 1rem;
     }
-
+    
     .navbar-menu.open {
       display: flex;
+      transition: all 3s ease-in-out;
+      z-index:1000;
+      border-radius:30px;
     }
   }
 `;
@@ -105,26 +108,34 @@ function Navbar() {
           </div>
 
           <ul className={`navbar-menu ${menuOpen ? "open" : ""}`}>
-              <a href="#home" className="navbar-link">
+                <Link to="/">
             <li className="navbar-item">
+              <a className="navbar-link">
                 Home
-            </li>
               </a>
+            </li>
+                </Link>
+            <Link to="/about">
             <li className="navbar-item">
-              <a href="#about" className="navbar-link">
+              <a className="navbar-link">
                 About
               </a>
             </li>
+            </Link>
+            <Link to="/projects">
             <li className="navbar-item">
-              <a href="#projects" className="navbar-link">
+              <a className="navbar-link">
                 Projects
               </a>
             </li>
+            </Link>
+            <Link to="/contact">
             <li className="navbar-item">
-              <a href="#contact" className="navbar-link">
+              <a className="navbar-link">
                 Contact
               </a>
             </li>
+            </Link>
           </ul>
 
           <div className="sm">

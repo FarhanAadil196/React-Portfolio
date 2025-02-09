@@ -12,7 +12,6 @@ const slideUp = keyframes`
 `;
 
 const Wrapper = styled.div`
-  background-color: #f8f8f8;
   text-align: start;
 
   h2 {
@@ -109,16 +108,19 @@ const Wrapper = styled.div`
     border-radius:20px;
     }
     }
-    .sc-btns{
-        width: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    padding: 0 20px;
-    
-
+        .prev{
+        position:absolute;
+        left:0;
+        z-index:100;
+        cursor:pointer;
+        }
+        .nxt{
+        position:absolute;
+        right:0;
+        z-index:100;
+        cursor:pointer;
+        }
+      
     button{
     text-decoration:none;
     color:black;
@@ -222,7 +224,6 @@ function Projects() {
         My <span>Projects</span>
       </h2>
       <div className="proj-container">
-        <div className="sc-btns">
           <button className="prev"onClick={() => {
               const scroller = document.querySelector(".proj-container");
               scroller.scrollLeft -= 1200;
@@ -231,7 +232,7 @@ function Projects() {
               const scroller = document.querySelector(".proj-container");
               scroller.scrollLeft += 1200;
             }}><img src="/next.svg" alt="" /></button>
-        </div>
+      
         {projects.map((project) => (
           <div className="project" key={project.id}>
             <img src={project.image} alt={project.title} className="image" />
